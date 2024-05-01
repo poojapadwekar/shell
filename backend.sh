@@ -36,6 +36,6 @@ echo Install MySQL Client
 dnf install mysql -y >>$log_file
 
 echo Load Schema
-mysql -h mysql.saujpoo.online -uroot -pExpenseApp@1 < /app/schema/backend.sql >>$log_file
+mysql -h 172.31.21.0 -uroot -pExpenseApp@1 < /app/schema/backend.sql >>$log_file
 
 
