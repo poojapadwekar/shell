@@ -7,6 +7,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 dnf module enable nodejs:18 -y &>>$log_file
@@ -14,6 +15,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 dnf install nodejs -y &>>$log_file
@@ -21,6 +23,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 echo Copy Backend Service
@@ -29,6 +32,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 echo Add ApplicatiOn User
@@ -37,7 +41,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
-  exit
+  exit 1
 fi
 
 echo Clear App Content
@@ -46,6 +50,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 mkdir /app
@@ -53,6 +58,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 cd /app
@@ -60,6 +66,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 download_and_extract &>>$log_file#function is called
@@ -67,6 +74,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 echo Download Dependencies
@@ -75,6 +83,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 echo Start Backend Service
@@ -83,6 +92,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 systemctl enable backend &>>$log_file
@@ -90,6 +100,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 systemctl start backend &>>$log_file
@@ -97,6 +108,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 echo Install MySQL Client
@@ -105,6 +117,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 echo Load Schema
@@ -113,6 +126,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit 1
 fi
 
 
