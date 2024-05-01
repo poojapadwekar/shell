@@ -37,6 +37,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
 else
   echo FAILED
+  exit
 fi
 
 echo Clear App Content
