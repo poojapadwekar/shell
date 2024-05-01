@@ -16,7 +16,10 @@ cp backend.service /etc/systemd/system/backend.service &>>$log_file
 stat_check &>>$log_file
 
 echo Add ApplicatiOn User
-useradd expense &>>$log_file
+id expense &>>$log_file
+if [ $? -ne 0 ]; then
+  useradd expense &>>$log_file
+fi
 stat_check &>>$log_file
 
 echo Clear App Content
