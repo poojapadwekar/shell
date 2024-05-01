@@ -1,9 +1,11 @@
 source common.sh
 component=backend
 
+echo Disable nodejs
 dnf module disable nodejs -y &>>$log_file
 stat_check
 
+echo enable nodejs
 dnf module enable nodejs:18 -y &>>$log_file
 stat_check
 
