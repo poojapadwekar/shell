@@ -1,4 +1,5 @@
 source common.sh
+component=backend
 
 echo Install NodeJS Repos
 dnf module disable nodejs -y
@@ -19,7 +20,7 @@ mkdir /app
 
 cd /app
 
-download and extract #function is called
+download_and_extract #function is called
 
 echo Download Dependencies
 npm install >>$log_file

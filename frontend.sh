@@ -1,5 +1,6 @@
 source common.sh
 component=frontend
+
 echo Installing nginx
 dnf install nginx -y >>$log_file
 
@@ -11,7 +12,7 @@ rm -rf /usr/share/nginx/html/* >>$log_file
 
 cd /usr/share/nginx/html
 
-download and extract #function is called
+download_and_extract #function is called
 
 echo Starting Nginx Service
 systemctl enable nginx >>$log_file
