@@ -20,7 +20,7 @@ mkdir /app
 
 cd /app
 
-download_and_extract #function is called
+download_and_extract &>>$log_file#function is called
 
 echo Download Dependencies
 npm install &>>$log_file
