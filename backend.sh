@@ -1,15 +1,18 @@
 source common.sh
 component=backend
 
-echo Install NodeJS Repos
 dnf module disable nodejs -y &>>$log_file
 stat_check
 
 dnf module enable nodejs:18 -y &>>$log_file
 stat_check
 
-dnf install nodejs -y &>>$log_file
-stat_check
+type npm >>$log_file
+if [ $? -ne 0 ]; then
+ echo Install NodeJS Repos
+ dnf install nodejs -y &>>$log_file
+ stat_check
+fi
 
 echo Copy Backend Service
 cp backend.service /etc/systemd/system/backend.service &>>$log_file
