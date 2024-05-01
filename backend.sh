@@ -6,6 +6,7 @@ dnf install nodejs -y
 cp backend.service /etc/systemd/system/backend.service
 
 useradd expense
+rm -rf /app
 
 mkdir /app
 cd /app
