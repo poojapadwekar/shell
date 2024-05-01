@@ -9,7 +9,7 @@ component=backend
 #dnf module enable nodejs:18 -y &>>$log_file
 #stat_check
 
-type npm >>$log_file
+type npm &>>$log_file
 if [ $? -ne 0 ]; then
  echo Install NodeJS Repos
  dnf install nodejs -y &>>$log_file
